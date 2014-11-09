@@ -1,21 +1,9 @@
 rm(list=ls())
+source("functions.R")
 
 twitter <- "../data/en_US/en_US.twitter.txt"
 news <- "../data/en_US/en_US.news.txt"
 blogs <- "../data/en_US/en_US.blogs.txt"
-
-# functions 
-read_data <- function(filename){
-  con <- file(filename, "r")
-  text <- readLines(con) 
-  close(con)
-  return(text)
-}
-
-sample_lines <- function(lines, prob){
-  s <- rbinom(length(lines), 1, prob)
-  lines[s]
-}
 
 # read data
 text.twitter <- read_data(twitter)
